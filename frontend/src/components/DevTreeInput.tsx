@@ -4,9 +4,10 @@ import { classNames } from "../utils"
 
 type DevTreeInputProps = {
     item: DevTreeLink
+    hanldeUrlChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-export default function DevTreeInput({item} : DevTreeInputProps) {
+export default function DevTreeInput({item, hanldeUrlChange} : DevTreeInputProps) {
   return (
     <div className="bg-white shadow-sm p-5 flex items-center gap-3">
         <div 
@@ -18,6 +19,9 @@ export default function DevTreeInput({item} : DevTreeInputProps) {
         <input 
             type="text" 
             className="flex-1 border border-gray-100 rounded-lg"
+            value={item.url}
+            onChange={hanldeUrlChange}
+            name={item.name}
         />
   <Switch
       checked={item.enabled}
